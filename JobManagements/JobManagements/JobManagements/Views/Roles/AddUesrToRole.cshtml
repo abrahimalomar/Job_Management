@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Identity;
+
+@model List<IdentityUser>
+
+@{
+    ViewData["Title"] = "AddUserToRole";
+}
+<h1>
+    Add User To <span style="color:blue">@ViewBag.role</span>
+</h1>
+
+<form asp-controller="Roles" asp-action="AddUesrToRole">
+
+    @foreach (var item in Model)
+    {
+        <div class="form-check">
+            <input type="checkbox" name="selecteItems" value="@item.Id" class="form-check-input" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">@item.UserName</label>
+        </div>
+    }
+    <br />
+    <input type="submit" value="Submit" class="btn btn-info" />
+</form>
+
+
+
+
+@*
+
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>cheek</th>
+            <th>User</th>
+            <th>Role</th>
+    </tr>
+
+  </thead>
+        <form asp-controller="Roles" asp-action="AddUesrToRole">
+        @foreach (var item in Model)
+        {
+            <tr>
+            <div class="form-check">
+            <td> <input type="checkbox" name="selecteItems" value="@item.Id" class="form-check-input" id="flexCheckDefault"></td>
+                <td class="form-check-label" for="flexCheckDefault">@item.UserName</td>
+            <td>@ViewBag.role</td>
+            </div>
+            </tr>
+        }
+        <dvi>
+          <input type="submit" value="Submit" class="btn btn-info" />
+        </dvi>
+</form>
+
+</table>
+
+
+*@

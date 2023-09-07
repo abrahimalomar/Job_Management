@@ -1,0 +1,41 @@
+﻿@*model IEnumerable<JobManagements.Models.UserJob>*@
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+    <tr>
+        <th>FullName</th>
+         <th>JobTitle</th>
+        <th>UserName</th>
+         <th>city</th>
+        <th>Date</th>
+        <th>Massage</th>
+        <th>Action</th>
+</tr>
+</thead>
+
+    @foreach (var j in ViewBag.Jobs)
+    {
+        <tr>
+       
+            <td>@j.username</td>
+            <td>@j.jobtitle</td>
+            <td>@j.fullName</td>
+            <td>@j.city</td>
+            <td>@j.date</td>
+            <td>@j.message</td>
+            <td>
+                     <a asp-action="EditForUserJobs"   class="btn btn-warning" asp-route-id="@j.ID">Edit</a>
+                    <a asp-action="DetailsForUserJobs"  class="btn btn-primary" asp-route-id="@j.ID">Details</a>
+                    <a asp-action="DeleteForUserJobs" class="btn btn-outline-danger" asp-route-id="@j.ID">Retreat</a>
+
+               
+            </td>
+        </tr>
+    }
+ 
+</table>
+

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<JobManagements.Models.Job>
+@{
+    ViewData["Title"] = "Index";
+}
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New Job</a>
+</p>
+
+<table class="table table-striped">
+<thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td> 
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+             <td>
+                <img src="@item.ImageSrc" style="width:100px; height:100px; border:1px black solid;">
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> 
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

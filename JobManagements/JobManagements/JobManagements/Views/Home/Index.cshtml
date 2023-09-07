@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@foreach (var item in Model)
+{
+    <h5>CategoryName: @item.CategoryName</h5>
+    <div class="row">
+        @foreach (var i in item.Jobs)
+        {
+            
+
+            <div class="card" style="width: 18rem;">
+                <img src="@i.ImageSrc" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Job title @i.JobTitle</h5>
+                    <h5 class="card-title">Salary @i.Salary $</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    <a class="btn btn-info" asp-action="Details" asp-controller="Home" asp-route-id="@i.Id">Go To Details</a>
+                </div>
+            </div>
+        }
+    </div>
+}
+

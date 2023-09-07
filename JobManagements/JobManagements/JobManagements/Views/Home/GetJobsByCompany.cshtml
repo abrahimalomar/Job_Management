@@ -1,0 +1,85 @@
+﻿@*model IEnumerable<JobManagements.Models.UserJob>*@
+
+@{
+    ViewData["Title"] = "GetJobsByCompany";
+}
+
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Date
+           
+            </th>
+            <th>
+                FullName
+              
+            </th>
+            <th>
+                City
+              
+            </th>
+            <th>
+                Message
+               
+            </th>
+            <th>
+                Job
+               
+            </th>
+            <th>
+                User
+              
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.usersJobs)
+        {
+        <tr>
+            <td>
+                    @item.userjob.Date
+                
+            </td>
+            <td>
+                    @item.userjob.FullName
+          
+            </td>
+            <td>
+                    @item.userjob.City
+              
+            </td>
+            <td>
+                    @item.userjob.Message
+              
+            </td>
+            <td>
+                    @item.userjob.Job.JobTitle
+             
+            </td>
+            <td>
+                    @item.user
+
+                    
+                    
+            </td>
+          
+            <td>
+                
+
+                    <a asp-action="Edit"   class="btn btn-warning"  asp-route-id="@item.userjob.Id">Edit</a>
+                    <a asp-action="DetailsForJobsByCompany" class="btn btn-primary" asp-route-id="@item.userjob.Id">Details</a>
+                    <a asp-action="DeleteJobsByCompany" asp-controller="Home" class="btn btn-outline-danger" asp-route-id="@item.userjob.Id">Delete</a>
+                
+            </td>
+       </tr>
+}
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index"class="btn btn-outline-info">Back</a>
+</div>
+
+

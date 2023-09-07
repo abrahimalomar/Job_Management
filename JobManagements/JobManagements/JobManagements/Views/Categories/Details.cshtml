@@ -1,0 +1,17 @@
+﻿@model JobManagements.Models.Category
+@{
+    ViewData["Title"] = "Details";
+}
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-outline-info">Back</a>
+</div>
